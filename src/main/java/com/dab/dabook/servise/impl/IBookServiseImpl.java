@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 public class IBookServiseImpl extends ServiceImpl<BookDao, Book> implements IBookServise {
     //每个层级都有联系
     @Autowired
-    private BookDao dao;
+    public BookDao dao;
 
     @Override
     public IPage<Book> getPage(int currentPage, int pageSize) {
-        IPage<Book> page = new Page<Book>(currentPage, pageSize);
+        IPage page = new Page(currentPage, pageSize);
         return dao.selectPage(page, null);
     }
 }

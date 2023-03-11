@@ -5,5 +5,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.dab.dabook.domain.Book;
 
 public interface IBookServise extends IService<Book> {
-    IPage<Book> getPage(int currentPage, int pageSize);
+    public IPage<Book> getPage(int currentPage, int pageSize);
 }

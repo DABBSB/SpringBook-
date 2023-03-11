@@ -1,11 +1,14 @@
 package com.dab.dabook.controller;
 
-import lombok.Data;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.dab.dabook.domain.Book;
 
-@Data
 public class RRR {
-    private Boolean flag;
-    private Object data;
+    public Boolean flag;
+    public Object data;
+
+    public RRR() {
+    }
 
     public RRR(Boolean flag) {
         this.flag = flag;
@@ -16,6 +19,8 @@ public class RRR {
         this.data = data;
     }
 
-    public RRR() {
+
+    public RRR(IPage<Book> page) {
+        this.data = page;
     }
 }

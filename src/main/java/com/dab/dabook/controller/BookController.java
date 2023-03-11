@@ -47,7 +47,7 @@ public class BookController {
 
     //    分页查询
     @GetMapping("/{currentPage}/{pageSize}")
-    private RRR Pages(@PathVariable int currentPage, @PathVariable int pageSize) {
-        return new RRR(true, servise.getPage(currentPage, pageSize));
+    public RRR Pages(@PathVariable int currentPage, @PathVariable int pageSize) {
+        return new RRR(currentPage != pageSize, servise.getPage(currentPage, pageSize));
     }
 }
