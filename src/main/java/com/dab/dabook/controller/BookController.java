@@ -1,5 +1,6 @@
 package com.dab.dabook.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.dab.dabook.domain.Book;
 import com.dab.dabook.servise.IBookServise;
 import org.springframework.web.bind.annotation.*;
@@ -47,7 +48,8 @@ public class BookController {
 
     //    分页查询
     @GetMapping("/{currentPage}/{pageSize}")
-    public RRR Pages(@PathVariable int currentPage, @PathVariable int pageSize) {
-        return new RRR(currentPage != pageSize, servise.getPage(currentPage, pageSize));
+    public RRR Pages(@PathVariable int currentPage, @PathVariable int pageSize, Book book) {
+        IPage<Book> iPage = servise.getPage(currentPage, pageSize, book);
+        return new RRR(null != iPage, iPage);
     }
 }
