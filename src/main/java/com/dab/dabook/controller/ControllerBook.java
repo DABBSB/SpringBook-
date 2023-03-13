@@ -28,19 +28,19 @@ public class ControllerBook {
     //    增加
     @PostMapping
     private RRR save(@RequestBody Book book) {
-        return new RRR(true, service.save(book));
+        return new RRR(service.save(book));
     }
 
     //删除
     @DeleteMapping("/{id}")
     private RRR delete(@PathVariable Integer id) {
-        return new RRR(true, service.removeById(id));
+        return new RRR(service.removeById(id));
     }
 
     //    修改
     @PutMapping()
     private RRR update(@RequestBody Book book) {
-        return new RRR(true, service.updateById(book));
+        return new RRR(service.updateById(book));
     }
 
     //    分页
